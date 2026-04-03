@@ -1,8 +1,8 @@
 public class no_of_vovels {
     public static void main(String[] args) {
         int count=0;
-        String r="qwertyuioopasdfghjklzxcvbnmacvavirdddfvjxiwis";
-        
+        // String r="qwertyuioopasdfghjklzxcvbnmacvavirdddfvjxiwis";
+        String r="hiiamvinaykumariamdoingthistomakemeperfectandtrackmyincridibleperformance";
         for(int i=0;i<r.length();i++);{
             int i;
             String ch = String.valueOf(r.charAt(i));
@@ -13,6 +13,5 @@ public class no_of_vovels {
 
         }
         System.out.println(count);
-
     }
 }
