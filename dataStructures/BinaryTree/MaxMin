@@ -1,0 +1,32 @@
+/* Structure of Binary Tree Node
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}*/
+
+class Solution {
+    public static int findMax(Node root) {
+        // code here
+        if(root==null) return Integer.MIN_VALUE;
+        // int max=root.data;
+        int leftmax=findMax(root.left);
+        int rightmax=findMax(root.right);
+        return ( root.data>leftmax && root.data> rightmax )? root.data:( (leftmax>rightmax && leftmax> root.data)? leftmax: rightmax );
+        // return (root.data>max)?(max=root.data): findMax(root.left) && findMax(root.right);
+        
+    }
+
+    public static int findMin(Node root) {
+        // code here
+         if(root==null) return Integer.MAX_VALUE ;
+        // int max=root.data;
+        int leftmin=findMin(root.left);
+        int rightmin=findMin(root.right);
+        return ( root.data<leftmin && root.data< rightmin )? root.data:( (leftmin<rightmin && leftmin< root.data)? leftmin: rightmin );
+    }
+}
