@@ -1,0 +1,32 @@
+/* Structure of Binary Tree Node
+class Node
+{
+    int data;
+    Node left, right;
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}*/
+
+class Solution {
+    void swap(Node root ){
+        if(root==null) return ;
+        else{
+            Node temp = root.left;
+            root.left=root.right;
+            root.right=temp;
+            swap(root.right);
+            swap(root.left);
+        }
+    }
+    void mirror(Node root) {
+        // code here
+        // Queue<Integer> q= new ArrayList<>();
+        swap(root);
+        return;
+        
+        
+    }
+}
