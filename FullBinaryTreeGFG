@@ -1,0 +1,42 @@
+/*Complete the function below
+Node is as follows:
+class Node {
+	int data;
+	Node left;
+	Node right;
+	
+	Node(int val) {
+		data = val;
+		left = right = null;
+	}
+};
+*/
+
+class Solution {
+	public  boolean ans = true;
+	public boolean isFullTree(Node root) {
+		// code here
+		
+		check(root);
+		return ans;
+		
+	}
+	
+	public void check(Node root) {
+	    if(root==null) return ;
+		if (root.left != null || root.right != null) {
+			if (root.left != null && root.right != null) {
+				
+			}
+			else {
+				ans = false;
+				return ;
+			}
+			if( ans ==true){
+			    check(root.left);
+			check(root.right);
+			}
+			
+		}
+	}
+}
