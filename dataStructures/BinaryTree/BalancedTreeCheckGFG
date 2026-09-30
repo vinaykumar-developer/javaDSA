@@ -1,0 +1,31 @@
+/* Structure of binary tree node
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int d)
+    {
+        data = d;
+        left = right = null;
+    }
+}*/
+
+class Solution {
+    public boolean flag=true;
+    public boolean isBalanced(Node root) {
+        // code here
+        if(root==null) return flag;
+        levels(root);
+        return flag;
+        
+    }
+    public  int levels(Node root){
+        if(root==null) return 0;
+        
+        int leftLevels=levels(root.left);
+        int rightLevels=levels(root.right);
+        if(Math.abs(leftLevels-rightLevels)>1) flag=false;
+        return 1+ Math.max(leftLevels,rightLevels);
+        
+    }
+}
