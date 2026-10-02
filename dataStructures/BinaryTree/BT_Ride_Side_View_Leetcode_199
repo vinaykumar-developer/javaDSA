@@ -1,0 +1,56 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+class Pair{
+   TreeNode root;
+   int level;
+   Pair(TreeNode root,int level){
+    this.root=root;
+    this.level=level;
+   }
+ }
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> view= new ArrayList<>();
+        Set<Integer> set= new HashSet<>();
+        Stack<Pair> st = new Stack<>();
+        if(root==null) return view;
+        PreOrder(root,1,st);
+        
+        while(!st.isEmpty()){
+            Pair pr=st.pop();
+            int l=pr.level;
+            if(!set.contains(l)){
+                // view.add(pr.root.val);
+                // set.add(l);
+                while(view.size()<l){
+                    view.add(0);//I am expanding the size of arraylsit is it is less than the no of levels 
+                    
+                }
+                view.set(l-1,pr.root.val);// adding the value at correct index
+                set.add(l); 
+            }
+        }
+        return view;
+    }
+    public void PreOrder(TreeNode root,int level,Stack<Pair> st){
+        if(root==null) return ;
+        Pair myPair = new Pair(root,level);
+        st.push(myPair);
+        PreOrder(root.left,level+1,st);
+        PreOrder(root.right,level+1,st);
+    }
+}
