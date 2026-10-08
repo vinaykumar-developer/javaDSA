@@ -1,0 +1,25 @@
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int[] larr=new int[nums.length];
+        int[] rarr= new int[nums.length];
+        int i=0;
+        int lsum=0;
+        while(i<nums.length){
+            lsum+=nums[i];
+            larr[i]=lsum;
+            i++;
+        }
+        int rsum=0;
+        int j=nums.length-1;
+        while(j>=0){
+            rsum+=nums[j];
+            rarr[j]=rsum;
+            j--;
+        }
+        for(int k=0;k<nums.length;k++){
+            if(larr[k]==rarr[k]) return k;
+        }
+        return -1;
+
+    }
+}
