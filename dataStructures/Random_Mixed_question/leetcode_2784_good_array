@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isGood(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for(int ele:nums) set.add(ele);
+        int count=0;
+        int max=0;
+        for(int ele:nums){
+            if(ele>max){
+                max=ele;
+            }
+        }
+        if(set.size()!=max) return false;
+        for(int ele: nums){
+            if(ele==max) count++;
+        }
+        if(nums.length!=max+1) return false;
+        if(count!=2) return false;
+        return true;
+    }
+}
