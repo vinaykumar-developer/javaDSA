@@ -1,0 +1,10 @@
+class Solution {
+    public String removeSpaces(String s) {
+        String n="";
+        int i=0;
+        for(char ch:s.toCharArray()){
+            if(ch!=' ') n+=ch;
+        }
+        return n;
+    }
+}
