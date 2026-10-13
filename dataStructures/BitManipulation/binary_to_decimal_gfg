@@ -1,0 +1,13 @@
+class Solution {
+    public int binaryToDecimal(String b) {
+        // code here
+        int ans=0;
+        int i=b.length()-1;
+        for(char ch:b.toCharArray()){
+            int a=ch -'0';
+            ans+=(a*Math.pow(2,i));
+            i--;
+        }
+        return ans;
+    }
+}
