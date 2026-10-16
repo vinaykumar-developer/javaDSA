@@ -1,0 +1,54 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public void pre(TreeNode root, List<Integer> l1 ){
+        if( root==null){
+            l1.add(null);
+            return ;
+        }
+        else{
+            l1.add(root.val);
+            pre(root.left,l1);
+            pre(root.right,l1);
+        }
+    }
+    public void post(TreeNode root, List<Integer> l2 ){
+        if( root==null) {
+            l2.add(null);
+            return ;
+        }
+        else{
+            l2.add(root.val);
+            post(root.right,l2);
+            post(root.left,l2);
+        }
+    }
+    public boolean isSymmetric(TreeNode root) {
+        List<Integer>l1= new ArrayList<>();
+        List<Integer>l2= new ArrayList<>();
+        pre(root,l1);
+        post(root,l2);
+        if (l1.size() != l2.size()) return false;
+        for (int i = 0; i < l1.size(); i++) {
+            Integer val1 = l1.get(i);
+            Integer val2 = l2.get(i);
+            if (val1 == null && val2 == null) continue;
+            if (val1 == null || val2 == null) return false;
+            if (!val1.equals(val2)) return false; 
+        }
+        return true;
+    }
+}
