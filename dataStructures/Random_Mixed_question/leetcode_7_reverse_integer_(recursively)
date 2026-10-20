@@ -1,0 +1,22 @@
+class Solution {
+    public int reverse(int x) {
+        boolean isnegative=false;
+        if(x==0) return 0;
+        if(x<0){
+            isnegative=true;
+            x=-x;
+        }
+        while(x%10==0){
+            x=x/10;
+        }
+        long n=0;
+        long ans = helper((long)x,n);
+        if(ans > Integer.MAX_VALUE || ans < Integer.MIN_VALUE)  return 0;
+        else if(isnegative) return (int)-ans;
+        return (int)ans;
+    }
+    public long helper(long x,long n){
+        if(x<=0) return n;
+        return helper(x/10,n*10+x%10);
+    }
+}
