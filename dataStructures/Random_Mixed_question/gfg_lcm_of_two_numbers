@@ -1,0 +1,10 @@
+class Solution {
+    public int lcm(int a, int b) {
+        // code here
+        return helper(Math.min(a,b),Math.max(a,b),Math.max(a,b));
+    }
+    public int helper(int a,int b,int n){
+        if(n%a==0 && n%b==0) return n;
+        else return helper(a,b,n+b);
+    }
+}
