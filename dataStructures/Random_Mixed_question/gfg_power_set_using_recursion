@@ -1,0 +1,16 @@
+class Solution {
+    public ArrayList<String> powerSet(String s) {
+        ArrayList<String> al = new ArrayList<>();
+        recursive("",s,0,al);
+        return al;
+    }
+    public void recursive(String str,String s, int idx,ArrayList<String> al){
+        if(idx==s.length()){
+            al.add(str);
+            return ;
+        }
+        char ch=s.charAt(idx);
+        recursive(str+ch,s,idx+1,al);
+        recursive(str,s,idx+1,al);
+    }
+}
