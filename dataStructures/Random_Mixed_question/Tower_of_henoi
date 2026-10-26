@@ -1,0 +1,16 @@
+package recursion;
+
+public class towerOfHenoi {
+    public static void main(String[] args) {
+        tower(4,'A','B','C');
+    }
+    public  static void tower(int n,char a,char b,char c ){
+        if(n==0) return;
+        //move n-1 disc from a to b via c
+        tower(n-1,a,c,b);
+        //longest disk from a to c
+        System.out.println(a+"->"+c);
+        //move b to c via a
+        tower(n-1,a,b,c);
+    }
+}
