@@ -1,0 +1,14 @@
+class Solution {
+    private int count;
+    public int towerOfHanoi(int n, int from, int to, int aux) {
+        count =0;
+        tower(n,'a','b','c');
+        return count ;
+    }
+    private void tower(int n,char a ,char b , char c){
+        if(n==0) return ;
+        tower(n-1,a,c,b);
+        count++;
+        tower(n-1,b,a,c);
+    }
+}
