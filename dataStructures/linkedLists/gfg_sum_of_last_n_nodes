@@ -1,0 +1,37 @@
+/* Structure for link list Node
+class Node {
+  public:
+    int data;
+    public Node next;
+    public Node(int val) {
+        data = val;
+        next = null;
+    }
+}; */
+
+class Solution {
+    public int sumofNodes(Node head, int n) {
+        // code here
+        Node temp= head;
+        int count=0;
+        int sum=0;
+        while(temp!=null){
+            count++;
+            sum+=temp.data;
+            temp=temp.next;
+        }
+        if(n>=count) return sum;
+        int i=1;
+        sum=0; temp=head;
+        while(i<count-n){
+            temp=temp.next;
+            i++;
+        }
+        temp=temp.next;
+        while(temp!=null){
+            sum+=temp.data;
+            temp=temp.next;
+        }
+        return sum;
+    }
+};
