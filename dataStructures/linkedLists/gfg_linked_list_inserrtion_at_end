@@ -1,0 +1,25 @@
+/*
+class Node{
+    int data;
+    Node next;
+
+    Node(int x){
+        data = x;
+        next = null;
+    }
+}
+*/
+class Solution {
+    public Node insertAtEnd(Node head, int x) {
+        // code here
+        if(head==null){
+            Node a= new Node(x);
+            return a;
+        }
+        Node temp=head;
+        while(temp.next!=null) temp=temp.next;
+        Node n=new Node(x);
+        temp.next=n;
+        return head;
+    }
+}
